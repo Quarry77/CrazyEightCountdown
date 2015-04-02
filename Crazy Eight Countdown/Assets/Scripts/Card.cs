@@ -21,24 +21,15 @@ public class Card : MonoBehaviour
 	const string QUEEN_STRING 		= "Queen";
 	const string KING_STRING 		= "King";
 
-	private int id;
-	private int suit;
-	private int value;
-	private string name;
+	public int id;
+	public int suit;
+	public int value;
+	public string name;
 
-	public Card (int id)
+	void Start()
 	{
-		this.id = id;
 		this.suit = this.GetSuitFromId(id);
 		this.value = this.GetValueFromId(id);
-		this.name = this.GetNameFromAttributes(this.suit, this.value);
-	}
-	
-	public Card (int suit, int value)
-	{
-		this.id = this.GetIdFromAttributes(suit, value);
-		this.suit = suit;
-		this.value = value;
 		this.name = this.GetNameFromAttributes(this.suit, this.value);
 	}
 
