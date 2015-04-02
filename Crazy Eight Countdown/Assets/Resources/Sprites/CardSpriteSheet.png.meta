@@ -1,0 +1,452 @@
+fileFormatVersion: 2
+guid: 3b03d4a8aed75664a87d0462bd2092b4
+timeCreated: 1428014998
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CardSpriteSheet_BAce
+    21300002: CardSpriteSheet_B7
+    21300004: CardSpriteSheet_BQueen
+    21300006: CardSpriteSheet_RAce
+    21300008: CardSpriteSheet_R7
+    21300010: CardSpriteSheet_RQueen
+    21300012: CardSpriteSheet_B2
+    21300014: B8
+    21300016: CardSpriteSheet_BKing
+    21300018: CardSpriteSheet_R2
+    21300020: CardSpriteSheet_R8
+    21300022: CardSpriteSheet_RKing
+    21300024: CardSpriteSheet_B3
+    21300026: CardSpriteSheet_B9
+    21300028: CardSpriteSheet_Spades
+    21300030: CardSpriteSheet_R3
+    21300032: CardSpriteSheet_R9
+    21300034: CardSpriteSheet_Diamonds
+    21300036: CardSpriteSheet_B4
+    21300038: CardSpriteSheet_B10
+    21300040: CardSpriteSheet_Clubs
+    21300042: CardSpriteSheet_R4
+    21300044: CardSpriteSheet_R10
+    21300046: CardSpriteSheet_Hearts
+    21300048: CardSpriteSheet_B5
+    21300050: CardSpriteSheet_z1
+    21300052: CardSpriteSheet_z2
+    21300054: CardSpriteSheet_R5
+    21300056: CardSpriteSheet_z4
+    21300058: CardSpriteSheet_z5
+    21300060: CardSpriteSheet_B6
+    21300062: CardSpriteSheet_BJack
+    21300064: CardSpriteSheet_z3
+    21300066: CardSpriteSheet_R6
+    21300068: CardSpriteSheet_RJack
+    21300070: CardSpriteSheet_z6
+    21300072: CardSpriteSheet_B8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: CardSpriteSheet_BAce
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 355
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .469999999, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_B7
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 355
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_BQueen
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 355
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_RAce
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 354
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_R7
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 355
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .550000012, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_RQueen
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 355
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .560000002, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_B2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 284
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .469999999, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_B8
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 284
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_BKing
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 284
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_R2
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 284
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_R8
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 284
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .550000012, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_RKing
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 284
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .560000002, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_B3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 213
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .469999999, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_B9
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 213
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_Spades
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 213
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_R3
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 213
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_R9
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 213
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .550000012, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_Diamonds
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 213
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .560000002, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_B4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 142
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .469999999, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_B10
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 142
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_Clubs
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 142
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_R4
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 142
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_R10
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 142
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .550000012, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_Hearts
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 142
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .560000002, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_B5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 71
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .469999999, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_z1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 71
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_z2
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 71
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_R5
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 71
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_z4
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 71
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_z5
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 71
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_B6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .469999999, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_BJack
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 0
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_z3
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_R6
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 0
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_RJack
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 0
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CardSpriteSheet_z6
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 0
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

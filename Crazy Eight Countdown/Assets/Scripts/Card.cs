@@ -24,13 +24,45 @@ public class Card : MonoBehaviour
 	public int id;
 	public int suit;
 	public int value;
-	public string name;
+	public string cardName;
+	public string test = "";
+	private Sprite[] sprites;
+	private string[] spriteNames;
+
+	void Awake()
+	{
+		this.sprites = Resources.LoadAll<Sprite>("Sprites/CardSpriteSheet");
+		Debug.Log("LENGTH: " + sprites.Length);
+		this.spriteNames = new string[this.sprites.Length];
+		for(int i = 0; i < this.spriteNames.Length; i++)
+		{
+			this.spriteNames[i] = this.sprites[i].name;
+		}
+	}
 
 	void Start()
 	{
 		this.suit = this.GetSuitFromId(id);
 		this.value = this.GetValueFromId(id);
-		this.name = this.GetNameFromAttributes(this.suit, this.value);
+		this.cardName = this.GetNameFromAttributes(this.suit, this.value);
+
+		Sprite suitSprite = this.GetSuitSprite(suit);
+		Sprite valueSprite = this.GetValueSprite(suit, value);
+
+		foreach (SpriteRenderer sr in gameObject.GetComponentsInChildren<SpriteRenderer>())
+		{
+			if (sr.gameObject.name != "CardBase")
+			{
+				if (sr.gameObject.name == "CardValue" || sr.gameObject.name == "CardValue-Inverted")
+				{
+					sr.sprite = valueSprite;
+				}
+				else
+				{
+					sr.sprite = suitSprite;
+				}
+			}
+		}
 	}
 
 	public int GetId()
@@ -43,7 +75,7 @@ public class Card : MonoBehaviour
 		this.id = id;
 		this.suit = this.GetSuitFromId(id);
 		this.value = this.GetValueFromId(id);
-		this.name = this.GetNameFromAttributes(this.suit, this.value);
+		this.cardName = this.GetNameFromAttributes(this.suit, this.value);
 	}
 	
 	public int GetSuit()
@@ -56,9 +88,71 @@ public class Card : MonoBehaviour
 		return this.value;
 	}
 	
-	public string GetName()
+	public string GetCardName()
 	{
-		return this.name;
+		return this.cardName;
+	}
+	
+	public Sprite GetSuitSprite(int suit)
+	{
+		string spriteName = "CardSpriteSheet_";
+		switch (suit)
+		{
+			case Card.SPADES:
+				spriteName += Card.SPADES_STRING;
+				break;
+			case Card.CLUBS:
+				spriteName += Card.CLUBS_STRING;
+				break;
+			case Card.DIAMONDS:
+				spriteName += Card.DIAMONDS_STRING;
+				break;
+			case Card.HEARTS:
+				spriteName += Card.HEARTS_STRING;
+				break;
+		}
+		Debug.Log(spriteName);
+		Debug.Log(System.Array.IndexOf(this.spriteNames, spriteName));
+		return this.sprites[System.Array.IndexOf(this.spriteNames, spriteName)];
+	}
+	
+	public Sprite GetValueSprite(int suit, int value)
+	{
+		string spriteName = "CardSpriteSheet_";
+		switch (suit)
+		{
+			case Card.SPADES:
+			case Card.CLUBS:
+				spriteName += "B";
+				break;
+			case Card.DIAMONDS:
+			case Card.HEARTS:
+				spriteName += "R";
+				break;
+		}
+		
+		switch (value)
+		{
+			case Card.ACE:
+				spriteName += Card.ACE_STRING;
+				break;
+			case Card.JACK:
+				spriteName += Card.JACK_STRING;
+				break;
+			case Card.QUEEN:
+				spriteName += Card.QUEEN_STRING;
+				break;
+			case Card.KING:
+				spriteName += Card.KING_STRING;
+				break;
+			default:
+				spriteName += value;
+				break;
+		}
+		
+		Debug.Log(spriteName);
+		Debug.Log(System.Array.IndexOf(this.spriteNames, spriteName));
+		return this.sprites[System.Array.IndexOf(this.spriteNames, spriteName)];
 	}
 	
 	public static int GetIdFromAttributes(int suit, int value)
