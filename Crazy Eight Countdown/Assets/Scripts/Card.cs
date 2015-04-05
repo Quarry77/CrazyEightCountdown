@@ -33,7 +33,6 @@ public class Card : MonoBehaviour
 	void Awake()
 	{
 		this.sprites = Resources.LoadAll<Sprite>("Sprites/Card");
-		Debug.Log(sprites.Length);
 		this.spriteNames = new string[this.sprites.Length];
 		for(int i = 0; i < this.spriteNames.Length; i++)
 		{

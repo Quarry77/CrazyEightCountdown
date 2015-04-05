@@ -38,10 +38,10 @@ public class GameController : MonoBehaviour
 	{
 		if (File.Exists(Application.persistentDataPath + "/gameData.dat"))
 		{
-			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/gameData.dat", FileMode.Open);
-			GameData data = (GameData)bf.Deserialize(file);
-			file.Close();
+//			BinaryFormatter bf = new BinaryFormatter();
+//			FileStream file = File.Open(Application.persistentDataPath + "/gameData.dat", FileMode.Open);
+//			GameData data = (GameData)bf.Deserialize(file);
+//			file.Close();
 
 			// Load data from 'data' object here
 
