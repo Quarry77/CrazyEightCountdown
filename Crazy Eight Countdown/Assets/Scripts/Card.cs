@@ -26,13 +26,14 @@ public class Card : MonoBehaviour
 	public int value;
 	public string cardName;
 	public string test = "";
+	public bool isFaceDown = false;
 	private Sprite[] sprites;
 	private string[] spriteNames;
 
 	void Awake()
 	{
-		this.sprites = Resources.LoadAll<Sprite>("Sprites/CardSpriteSheet");
-		Debug.Log("LENGTH: " + sprites.Length);
+		this.sprites = Resources.LoadAll<Sprite>("Sprites/Card");
+		Debug.Log(sprites.Length);
 		this.spriteNames = new string[this.sprites.Length];
 		for(int i = 0; i < this.spriteNames.Length; i++)
 		{
@@ -46,25 +47,15 @@ public class Card : MonoBehaviour
 		this.value = this.GetValueFromId(id);
 		this.cardName = this.GetNameFromAttributes(this.suit, this.value);
 
-		Sprite suitSprite = this.GetSuitSprite(suit);
-		Sprite valueSprite = this.GetValueSprite(suit, value);
-
-		foreach (SpriteRenderer sr in gameObject.GetComponentsInChildren<SpriteRenderer>())
-		{
-			if (sr.gameObject.name != "CardBase")
-			{
-				if (sr.gameObject.name == "CardValue" || sr.gameObject.name == "CardValue-Inverted")
-				{
-					sr.sprite = valueSprite;
-				}
-				else
-				{
-					sr.sprite = suitSprite;
-				}
-			}
-		}
+		this.renderCard();
 	}
 
+	void Update()
+	{
+		this.renderCard();
+	}
+
+	// Public Functions
 	public int GetId()
 	{
 		return this.id;
@@ -76,6 +67,8 @@ public class Card : MonoBehaviour
 		this.suit = this.GetSuitFromId(id);
 		this.value = this.GetValueFromId(id);
 		this.cardName = this.GetNameFromAttributes(this.suit, this.value);
+
+		this.renderCard();
 	}
 	
 	public int GetSuit()
@@ -96,7 +89,7 @@ public class Card : MonoBehaviour
 	public Sprite GetSuitSprite(int suit)
 	{
 		string spriteName = "CardSpriteSheet_";
-		switch (suit)
+		switch (Mathf.Clamp(suit, 0, 3))
 		{
 			case Card.SPADES:
 				spriteName += Card.SPADES_STRING;
@@ -111,15 +104,14 @@ public class Card : MonoBehaviour
 				spriteName += Card.HEARTS_STRING;
 				break;
 		}
-		Debug.Log(spriteName);
-		Debug.Log(System.Array.IndexOf(this.spriteNames, spriteName));
+
 		return this.sprites[System.Array.IndexOf(this.spriteNames, spriteName)];
 	}
 	
 	public Sprite GetValueSprite(int suit, int value)
 	{
 		string spriteName = "CardSpriteSheet_";
-		switch (suit)
+		switch (Mathf.Clamp(suit, 0, 3))
 		{
 			case Card.SPADES:
 			case Card.CLUBS:
@@ -131,7 +123,7 @@ public class Card : MonoBehaviour
 				break;
 		}
 		
-		switch (value)
+		switch (Mathf.Clamp(value, 1, 13))
 		{
 			case Card.ACE:
 				spriteName += Card.ACE_STRING;
@@ -149,12 +141,18 @@ public class Card : MonoBehaviour
 				spriteName += value;
 				break;
 		}
-		
-		Debug.Log(spriteName);
-		Debug.Log(System.Array.IndexOf(this.spriteNames, spriteName));
+
 		return this.sprites[System.Array.IndexOf(this.spriteNames, spriteName)];
 	}
-	
+
+	public void setFaceDown(bool faceDown)
+	{
+		this.isFaceDown = faceDown;
+
+		this.renderCard();
+	}
+
+	// Static Functions
 	public static int GetIdFromAttributes(int suit, int value)
 	{
 		return (suit * 13) + value - 1;
@@ -211,5 +209,48 @@ public class Card : MonoBehaviour
 		}
 
 		return name;
+	}
+
+	// Private Functions
+	private void renderCard()
+	{
+		if(this.isFaceDown)
+		{
+			foreach (SpriteRenderer sr in gameObject.GetComponentsInChildren<SpriteRenderer>())
+			{
+				if (sr.gameObject.name == "CardBase")
+				{
+					sr.sprite = this.sprites[System.Array.IndexOf(this.spriteNames, "CardBack")];
+				}
+				else
+				{
+					sr.sprite = null;
+				}
+			}
+		}
+		else
+		{
+			Sprite suitSprite = this.GetSuitSprite(suit);
+			Sprite valueSprite = this.GetValueSprite(suit, value);
+			
+			foreach (SpriteRenderer sr in gameObject.GetComponentsInChildren<SpriteRenderer>())
+			{
+				if (sr.gameObject.name == "CardBase")
+				{
+					sr.sprite = this.sprites[System.Array.IndexOf(this.spriteNames, "CardBase")];
+				}
+				else
+				{
+					if (sr.gameObject.name == "CardValue" || sr.gameObject.name == "CardValue-Inverted")
+					{
+						sr.sprite = valueSprite;
+					}
+					else
+					{
+						sr.sprite = suitSprite;
+					}
+				}
+			}
+		}
 	}
 }
