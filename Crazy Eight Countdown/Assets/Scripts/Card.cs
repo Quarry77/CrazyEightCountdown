@@ -49,6 +49,13 @@ public class Card : MonoBehaviour
 		this.renderCard();
 	}
 
+	public void OnMouseUpAsButton()
+	{
+		Debug.Log(this.id);
+		int playerId = this.GetComponentInParent<PlayerHand>().playerId;
+		GamePlayController.gamePlayController.TryCard(playerId, this.id);
+	}
+
 	void Update()
 	{
 		this.renderCard();
