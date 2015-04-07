@@ -41,6 +41,18 @@ public class CardPile : MonoBehaviour {
 		this.GetComponentInChildren<Card>().isFaceDown = this.isFaceDown;
 		this.renderPile();
 	}
+	
+	public void OnMouseUpAsButton()
+	{
+		if (this.name == "Deck")
+		{
+			GamePlayController.gamePlayController.DeckClick();
+		}
+		else if (this.name == "Discard")
+		{
+
+		}
+	}
 
 	// Public Functions
 	public void ShuffleNewDeck()

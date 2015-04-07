@@ -23,13 +23,16 @@ public class PlayerHand : MonoBehaviour {
 
 	public void DrawCard(int cardId)
 	{
-		GameObject newCardObj = (GameObject)Instantiate(Resources.Load("Prefabs/Card"), new Vector3(transform.localPosition.x, transform.localPosition.y), new Quaternion());
-		newCardObj.transform.parent = gameObject.transform;
-		Card newCard = newCardObj.GetComponent<Card>();
-		newCard.SetId(cardId);
-		this.cards.Add(newCard);
+		if (cardId >= 0)
+		{
+			GameObject newCardObj = (GameObject)Instantiate(Resources.Load("Prefabs/Card"), new Vector3(transform.localPosition.x, transform.localPosition.y), new Quaternion());
+			newCardObj.transform.parent = gameObject.transform;
+			Card newCard = newCardObj.GetComponent<Card>();
+			newCard.SetId(cardId);
+			this.cards.Add(newCard);
 
-		this.reorientCards();
+			this.reorientCards();
+		}
 	}
 
 	public int PlayCard(int cardId)
@@ -41,6 +44,8 @@ public class PlayerHand : MonoBehaviour {
 				Card card = this.cards[i];
 				this.cards.RemoveAt(i);
 				Destroy(card.gameObject);
+				
+				this.reorientCards();
 				return cardId;
 			}
 		}

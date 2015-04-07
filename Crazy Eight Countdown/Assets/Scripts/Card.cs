@@ -51,7 +51,6 @@ public class Card : MonoBehaviour
 
 	public void OnMouseUpAsButton()
 	{
-		Debug.Log(this.id);
 		int playerId = this.GetComponentInParent<PlayerHand>().playerId;
 		GamePlayController.gamePlayController.TryCard(playerId, this.id);
 	}

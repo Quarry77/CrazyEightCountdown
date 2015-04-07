@@ -70,6 +70,8 @@ public class GamePlayController : MonoBehaviour {
 			}
 		}
 
+		this.discard.AddCardOnTop(this.deck.DrawCard());
+
 		this.activePlayer = 0;
 	}
 
@@ -82,5 +84,10 @@ public class GamePlayController : MonoBehaviour {
 				this.discard.AddCardOnTop(cardId);
 			}
 		}
+	}
+
+	public void DeckClick()
+	{
+		this.players[activePlayer].DrawCard(this.deck.DrawCard());
 	}
 }
