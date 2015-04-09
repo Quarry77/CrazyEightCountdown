@@ -25,7 +25,12 @@ public class PlayerHand : MonoBehaviour {
 	{
 		if (cardId >= 0)
 		{
-			GameObject newCardObj = (GameObject)Instantiate(Resources.Load("Prefabs/Card"), new Vector3(transform.localPosition.x, transform.localPosition.y), new Quaternion());
+			Quaternion quat = new Quaternion();
+			if (this.isVertical)
+			{
+				quat = Quaternion.Euler(0,0,-90);
+			}
+			GameObject newCardObj = (GameObject)Instantiate(Resources.Load("Prefabs/Card"), new Vector3(transform.localPosition.x, transform.localPosition.y), quat);
 			newCardObj.transform.parent = gameObject.transform;
 			Card newCard = newCardObj.GetComponent<Card>();
 			newCard.SetId(cardId);
@@ -60,7 +65,7 @@ public class PlayerHand : MonoBehaviour {
 
 	private void reorientCards()
 	{
-		if (this.isVertical)
+		if (this.isVertical && false)
 		{
 			for (int i = 0; i < this.cards.Count; i++)
 			{

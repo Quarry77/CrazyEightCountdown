@@ -6,7 +6,7 @@ public class CardPile : MonoBehaviour {
 
 	public bool isFaceDown;
 	public int cardCount;
-	private List<int> cards;
+	public List<int> cards;
 	private Card activeCard;
 
 	// Use this for initialization
@@ -104,6 +104,11 @@ public class CardPile : MonoBehaviour {
 	public void AddCardOnTop(int cardId)
 	{
 		this.cards.Insert(0, cardId);
+	}
+
+	public int PeekTopCardId()
+	{
+		return this.cards[0];
 	}
 
 	// Private Functions

@@ -59,10 +59,45 @@ public class GamePlayController : MonoBehaviour {
 
 		for (int i = 0; i < playerCount; i++)
 		{
-			GameObject newPlayer = (GameObject)Instantiate(Resources.Load("Prefabs/Player"), new Vector3(0, -4.5f, 0), new Quaternion());
+			GameObject newPlayer;
+			bool isVertical = false;
+			switch (i)
+			{
+				case 0:
+					newPlayer = (GameObject)Instantiate(Resources.Load("Prefabs/Player"), new Vector3(0, -4.5f, 0), new Quaternion());
+					break;
+				case 1:
+					if (playerCount == 2)
+					{
+						newPlayer = (GameObject)Instantiate(Resources.Load("Prefabs/Player"), new Vector3(0, 4.5f, 0), Quaternion.Euler(0, 0, 180));
+					}
+					else
+					{
+						newPlayer = (GameObject)Instantiate(Resources.Load("Prefabs/Player"), new Vector3(-9.0f, 0, 0), Quaternion.Euler(0, 0, 90));
+						isVertical = true;
+					}
+					break;
+				case 2:
+					if (playerCount == 3)
+					{
+						newPlayer = (GameObject)Instantiate(Resources.Load("Prefabs/Player"), new Vector3(0, 4.5f, 0), Quaternion.Euler(0, 0, 180));
+					}
+					else
+					{
+						newPlayer = (GameObject)Instantiate(Resources.Load("Prefabs/Player"), new Vector3(9.0f, 0, 0), Quaternion.Euler(0, 0, -90));
+						isVertical = true;
+					}
+					break;
+				default:
+					newPlayer = (GameObject)Instantiate(Resources.Load("Prefabs/Player"), new Vector3(9.0f, 0, 0), Quaternion.Euler(0, 0, -90));
+					isVertical = true;
+					break;
+			}
+
 			this.players.Add(newPlayer.GetComponent<PlayerHand>());
 			this.players[i].level = 8;
 			this.players[i].playerId = i;
+			this.players[i].isVertical = isVertical;
 
 			while (this.players[i].GetCardCount() < this.players[i].level)
 			{
@@ -77,7 +112,7 @@ public class GamePlayController : MonoBehaviour {
 
 	public void TryCard(int playerId, int cardId)
 	{
-		if (this.activePlayer == playerId) //&& this.isValidPlay(cardId))
+		if (this.activePlayer == playerId && this.IsValidPlay(cardId))
 		{
 			if (this.players[playerId].PlayCard(cardId) >= 0)
 			{
@@ -88,6 +123,52 @@ public class GamePlayController : MonoBehaviour {
 
 	public void DeckClick()
 	{
-		this.players[activePlayer].DrawCard(this.deck.DrawCard());
+		if (this.deck.cardCount > 0)
+		{
+			this.players[activePlayer].DrawCard(this.deck.DrawCard());
+		}
+		else
+		{
+			bool checkSameVal = true;
+			List<int> shuffleableCards = new List<int>();
+			int topCardVal = Card.GetValueFromId(this.discard.cards[0]);
+			for (int i = 1; i < this.discard.cards.Count; i++)
+			{
+				if (checkSameVal)
+				{
+					if (Card.GetValueFromId(this.discard.cards[i]) == topCardVal)
+					{
+						continue;
+					}
+					else
+					{
+						checkSameVal = false;
+					}
+				}
+				shuffleableCards.Add(this.discard.cards[i]);
+			}
+
+			this.deck.ShuffleRemainingDeck(shuffleableCards);
+		}
+	}
+
+	private bool IsValidPlay(int cardId)
+	{
+		int newSuit = Card.GetSuitFromId(cardId);
+		int newValue = Card.GetValueFromId(cardId);
+		int oldSuit = Card.GetSuitFromId(this.discard.PeekTopCardId());
+		int oldValue = Card.GetValueFromId(this.discard.PeekTopCardId());
+
+		bool isValid = false;
+		if (oldSuit == newSuit)
+		{
+			isValid = true;
+		}
+		else if (oldValue == newValue)
+		{
+			isValid = true;
+		}
+
+		return isValid;
 	}
 }
